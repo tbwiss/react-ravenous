@@ -11,16 +11,25 @@ class App extends React.Component {
       super(props);
       
       this.state = { 
-        businesses: [] 
+        businesses: [],
+        events: []
       };
       
-      this.searchYelp = this.searchYelp.bind(this);
+      this.searchYelpBusiness = this.searchYelpBusiness.bind(this);
+      this.searchYelpEvent = this.searchYelpEvent.bind(this);
     }
     
-    searchYelp(term, location, sortBy) {
-      Yelp.search(term, location, sortBy).then(businesses => {  
-          if(!businesses) return;
-          return this.setState({ businesses });
+    searchYelpBusiness(term, location, sortBy) {
+      Yelp.searchBusiness(term, location, sortBy).then(businesses => {  
+        if (!businesses) return;
+        return this.setState({ businesses });
+      });
+    }
+    
+    searchYelpEvent(location) {
+      Yelp.searchEvent(location).then(events => {
+        if (!events) return;
+        return this.setState({ events });
       });
     }
     
@@ -28,7 +37,7 @@ class App extends React.Component {
       return (
         <div className="App">
           <h1>ravenous</h1>
-          <SearchBar searchYelp={this.searchYelp} />
+          <SearchBar searchYelpBusiness={this.searchYelpBusiness} searchYelpEvent={this.searchYelpEvent} />
           <BusinessList businesses={this.state.businesses} />
         </div>
       );

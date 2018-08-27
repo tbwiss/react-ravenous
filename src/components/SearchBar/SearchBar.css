@@ -37,6 +37,46 @@
   color: #f0c36c;
 }
 
+
+
+
+
+.SearchBar-search-options ul {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2.22rem;
+  color: #ffffff;
+}
+
+.SearchBar-search-options li {
+  cursor: pointer;
+  width: 4.33rem;
+  border-bottom: 1px solid #fff;
+  padding: 0 2.58rem .33rem 2.58rem;
+  line-height: 1.13;
+  text-align: center;
+  font-weight: 600;
+  font-size: .83rem;
+  transition: color .25s;
+}
+
+.SearchBar-search-options li:hover {
+  color: #d4cfcf;
+}
+
+.SearchBar-search-options li.active,
+.SearchBar-search-options li.active:hover {
+  border-bottom: 1px solid #5bc63d;
+  color: #5bc63d;
+}
+
+
+
+
+
+
+
+
 .SearchBar-fields {
   display: flex;
   justify-content: center;

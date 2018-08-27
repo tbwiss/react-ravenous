@@ -3,8 +3,8 @@ import 'whatwg-fetch';
 const API_KEY = 'X0t4NfGHgzG33hxEQI5--n0DkXuxKzx6k_plSfrlXjzu-aXlrSv8vzHWQVL-gSfJ7-OoaM1o53pzbuggvr6mw9XH-DLhaUww2z7ReahIpe_Z6lcjM3npHY_4C9WDW3Yx';
 
 let Yelp = {
-    search(term, location, sortBy) {
-    return fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}&sort_by=${sortBy}`, { headers: { Authorization: `Bearer ${API_KEY}` } })
+    searchBusiness(term, location, sortBy) {
+      return fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}&sort_by=${sortBy}`, { headers: { Authorization: `Bearer ${API_KEY}` } })
         .then(response => {
             return response.json();
         })
@@ -26,6 +26,18 @@ let Yelp = {
                 });
             }
         })
+    },
+    
+    searchEvent(location) {
+      return fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/events?find_loc=${location}`, { headers: { Authorization: `Bearer ${API_KEY}` } })
+            .then(response => {
+                return response.json();
+            })
+            .then(jsonResponse => {
+                if (jsonResponse.events) {
+                    console.log(jsonResponse.event);
+                }
+            })
     }
 };
 
