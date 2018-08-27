@@ -18,7 +18,7 @@ let Yelp = {
                         address: business.location.address1,
                         city: business.location.city,
                         state: business.location.state,
-                        zipCode: business.location.zipCode,
+                        zipCode: business.location.zip_code,
                         category: business.categories.length ?  business.categories[0].title : 'No category',
                         rating: business.rating,
                         reviewCount: business.review_count
